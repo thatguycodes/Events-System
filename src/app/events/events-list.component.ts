@@ -5,11 +5,15 @@ import { Component } from '@angular/core';
   template: ` <div>
     <h1>Upcoming Events</h1>
     <hr />
-    <app-event-thumbnail
-      (eventClick)="handleEventClicked($event)"
-      *ngFor="let event of events"
-      [event]="event"
-    ></app-event-thumbnail>
+    <div class="row">
+      <div *ngFor="let event of events" class="col-md-5">
+        <app-event-thumbnail
+          (eventClick)="handleEventClicked($event)"
+          [event]="event"
+        >
+        </app-event-thumbnail>
+      </div>
+    </div>
   </div>`,
 })
 export class EventsListComponent {
@@ -21,11 +25,8 @@ export class EventsListComponent {
       time: '10:00 am',
       price: 599.99,
       imageUrl: '/assets/images/angularconnect-shield.png',
-      location: {
-        address: '1057 DT',
-        city: 'London',
-        country: 'England',
-      },
+      onlineUrl: 'https://www.ng-conf.org/',
+      format: 'Online',
       sessions: [
         {
           id: 1,
@@ -99,11 +100,8 @@ export class EventsListComponent {
       time: '9:00 am',
       price: 950.0,
       imageUrl: '/assets/images/ng-nl.png',
-      location: {
-        address: 'The NG-NL Convention Center & Scuba Shop',
-        city: 'Amsterdam',
-        country: 'Netherlands',
-      },
+      onlineUrl: 'http://ng-nl.org/',
+      format: 'Online',
       sessions: [
         {
           id: 1,
@@ -164,6 +162,7 @@ export class EventsListComponent {
         city: 'Salt Lake City',
         country: 'USA',
       },
+      format: 'InPerson',
       sessions: [
         {
           id: 1,
@@ -241,11 +240,8 @@ export class EventsListComponent {
       time: '8:00 am',
       price: 800.0,
       imageUrl: '/assets/images/basic-shield.png',
-      location: {
-        address: 'The UN Angular Center',
-        city: 'New York',
-        country: 'USA',
-      },
+      onlineUrl: 'http://unangularsummit.org',
+      format: 'Online',
       sessions: [
         {
           id: 1,
@@ -295,6 +291,7 @@ export class EventsListComponent {
         city: 'Las Vegas',
         country: 'USA',
       },
+      format: 'Online',
       sessions: [
         {
           id: 1,
