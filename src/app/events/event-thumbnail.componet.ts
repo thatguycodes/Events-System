@@ -24,7 +24,7 @@ import { Component, Input } from '@angular/core';
   styles: [
     `
       .thumbnail {
-        min-height: 210px;
+        min-height: 225px!important;
       }
       .pad-left {
         margin-left: 10px;

@@ -1,3 +1,4 @@
+import { EventService } from './events/shared/events.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -16,7 +17,7 @@ import {EventThumbnailComponent} from './events/event-thumbnail.componet';
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [EventService],
   bootstrap: [EventsAppComponent]
 })
 export class AppModule { }
