@@ -1,5 +1,5 @@
-import { EventService } from "./shared/events.service";
-import { Component } from '@angular/core';
+import { EventService } from './shared/events.service';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-events-list',
@@ -9,7 +9,6 @@ import { Component } from '@angular/core';
     <div class="row">
       <div *ngFor="let event of events" class="col-md-5">
         <app-event-thumbnail
-          (eventClick)="handleEventClicked($event)"
           [event]="event"
         >
         </app-event-thumbnail>
@@ -17,12 +16,11 @@ import { Component } from '@angular/core';
     </div>
   </div>`,
 })
-export class EventsListComponent {
-  events: any = [];
-  constructor( eventService: EventService) {
-    this.events = eventService.getEvents();
+export class EventsListComponent implements OnInit {
+  events: any[];
+  constructor(private eventService: EventService) {
   }
-  handleEventClicked(data) {
-    console.log('Yep I work');
+  ngOnInit() {
+    this.events = this.eventService.getEvents();
   }
 }
