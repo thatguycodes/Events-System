@@ -1,6 +1,6 @@
+import { NotificationService } from './shared/notification.service';
 import { EventService } from './shared/events.service';
 import { Component, OnInit } from '@angular/core';
-
 @Component({
   selector: 'app-events-list',
   template: ` <div>
@@ -9,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
     <div class="row">
       <div *ngFor="let event of events" class="col-md-5">
         <app-event-thumbnail
+        (click)="handleThumbnailClick(event.name)"
           [event]="event"
         >
         </app-event-thumbnail>
@@ -18,9 +19,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EventsListComponent implements OnInit {
   events: any[];
-  constructor(private eventService: EventService) {
+  constructor(private eventService: EventService, private notifyService: NotificationService) {
   }
   ngOnInit() {
     this.events = this.eventService.getEvents();
+  }
+  handleThumbnailClick(eventName: string) {
+    this.notifyService.showSuccess(eventName, 'Success');
   }
 }

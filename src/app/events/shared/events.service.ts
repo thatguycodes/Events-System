@@ -1,8 +1,9 @@
+import { NotificationService } from './notification.service';
 import { Injectable } from '@angular/core';
 
 @Injectable()
 export class EventService {
-  private events = [
+    private events = [
     {
       id: 1,
       name: 'Angular Connect',
@@ -307,5 +308,8 @@ export class EventService {
   ];
 getEvents() {
 return this.events;
+}
+getEvent(id: number) {
+  return this.events.find(event => event.id === id);
 }
 }
