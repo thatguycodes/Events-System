@@ -2,7 +2,6 @@ import { NotificationService } from './shared/notification.service';
 import { EventService } from './shared/events.service';
 import { Component, OnInit } from '@angular/core';
 @Component({
-  selector: 'app-events-list',
   template: ` <div>
     <h1>Upcoming Events</h1>
     <hr />
