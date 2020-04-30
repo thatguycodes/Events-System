@@ -1,3 +1,4 @@
+import { EventsListResolver } from './events/shared/events-list-resolver.service';
 import { EventRouteActivator } from './events/events-details/event-route-activator.service';
 import { Error404Component } from './errors/404.component';
 import { CreateEventComponent } from './events/create-event.component';
@@ -33,7 +34,8 @@ import { appRoutes } from './route';
   providers: [
     EventService,
     NotificationService,
-    EventRouteActivator
+    EventRouteActivator,
+    EventsListResolver
 ],
   bootstrap: [EventsAppComponent]
 })

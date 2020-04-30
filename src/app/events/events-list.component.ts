@@ -1,3 +1,4 @@
+import { ActivatedRoute } from '@angular/router';
 import { NotificationService } from './shared/notification.service';
 import { EventService } from './shared/events.service';
 import { Component, OnInit } from '@angular/core';
@@ -18,10 +19,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EventsListComponent implements OnInit {
   events: any;
-  constructor(private eventService: EventService, private notifyService: NotificationService) {
+  constructor(
+    private eventService: EventService,
+    private notifyService: NotificationService,
+    private activeRoute: ActivatedRoute
+    ) {
   }
   ngOnInit() {
-    this.events = this.eventService.getEvents().subscribe(events => {this.events = events; });
+  this.events = this.activeRoute.snapshot.data.events;
   }
   handleThumbnailClick(eventName: string) {
     this.notifyService.showSuccess(eventName, 'Success');
