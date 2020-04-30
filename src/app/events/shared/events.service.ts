@@ -1,9 +1,9 @@
-import { NotificationService } from './notification.service';
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Injectable()
 export class EventService {
-    private events = [
+private events = [
     {
       id: 1,
       name: 'Angular Connect',
@@ -306,10 +306,15 @@ export class EventService {
       ],
     },
   ];
-getEvents() {
-return this.events;
-}
-getEvent(id: number) {
-  return this.events.find(event => event.id === id);
-}
+  getEvents() {
+    const subject = new Subject();
+    setTimeout(() => {
+      subject.next(this.events);
+      subject.complete();
+    }, 100);
+    return subject;
+  }
+  getEvent(id: number) {
+    return this.events.find((event) => event.id === id);
+  }
 }

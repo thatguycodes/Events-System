@@ -17,11 +17,11 @@ import { Component, OnInit } from '@angular/core';
   </div>`,
 })
 export class EventsListComponent implements OnInit {
-  events: any[];
+  events: any;
   constructor(private eventService: EventService, private notifyService: NotificationService) {
   }
   ngOnInit() {
-    this.events = this.eventService.getEvents();
+    this.events = this.eventService.getEvents().subscribe(events => {this.events = events; });
   }
   handleThumbnailClick(eventName: string) {
     this.notifyService.showSuccess(eventName, 'Success');

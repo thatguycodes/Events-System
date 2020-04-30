@@ -1,5 +1,5 @@
-import { EventRouteActivator } from "./events/events-details/event-route-activator.service";
-import { Error404Component } from "./errors/404.component";
+import { EventRouteActivator } from './events/events-details/event-route-activator.service';
+import { Error404Component } from './errors/404.component';
 import { CreateEventComponent } from './events/create-event.component';
 import { EventDetailsComponent } from './events/events-details/event-details.component';
 import { NotificationService } from './events/shared/notification.service';
@@ -30,7 +30,11 @@ import { appRoutes } from './route';
     ToastrModule.forRoot(),
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [EventService, NotificationService, EventRouteActivator],
+  providers: [
+    EventService,
+    NotificationService,
+    EventRouteActivator
+],
   bootstrap: [EventsAppComponent]
 })
 export class AppModule { }
