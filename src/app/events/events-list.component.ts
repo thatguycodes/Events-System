@@ -1,6 +1,5 @@
+import { IEvent,  NotificationService  } from './shared/index';
 import { ActivatedRoute } from '@angular/router';
-import { NotificationService } from './shared/notification.service';
-import { EventService } from './shared/events.service';
 import { Component, OnInit } from '@angular/core';
 @Component({
   template: ` <div>
@@ -18,9 +17,8 @@ import { Component, OnInit } from '@angular/core';
   </div>`,
 })
 export class EventsListComponent implements OnInit {
-  events: any;
+  events: IEvent[];
   constructor(
-    private eventService: EventService,
     private notifyService: NotificationService,
     private activeRoute: ActivatedRoute
     ) {

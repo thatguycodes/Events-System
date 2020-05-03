@@ -1,3 +1,4 @@
+import { IEvent } from './shared/index';
 import { Component, Input } from '@angular/core';
 
 @Component({
@@ -36,7 +37,7 @@ import { Component, Input } from '@angular/core';
   ],
 })
 export class EventThumbnailComponent {
-  @Input() event: any;
+  @Input() event: IEvent;
   getTitleStyle(eventFormat: string): any {
     if (eventFormat === 'InPerson') {
       return {color: 'green'};
