@@ -4,12 +4,13 @@ import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {userRoutes} from './user.routes';
-import { FormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 @NgModule({
   imports: [
     CommonModule,
     RouterModule.forChild(userRoutes),
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   declarations: [
     ProfileComponent,
