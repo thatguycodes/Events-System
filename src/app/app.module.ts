@@ -7,7 +7,7 @@ import {
   EventService,
   NotificationService,
   EventsListComponent,
-  EventThumbnailComponent
+  EventThumbnailComponent,
 } from './events/index';
 import { EventRouteActivator } from './events/events-details/event-route-activator.service';
 import { Error404Component } from './errors/404.component';
@@ -17,32 +17,35 @@ import { ToastrModule } from 'ngx-toastr';
 
 import { NavbarComponent } from './nav/navbar.component';
 import { EventsAppComponent } from './events-app.component';
-import {RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { appRoutes } from './route';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-   EventsAppComponent,
-   EventsListComponent,
-   EventThumbnailComponent,
-   NavbarComponent,
-   EventDetailsComponent,
-   CreateEventComponent,
-   Error404Component
+    EventsAppComponent,
+    EventsListComponent,
+    EventThumbnailComponent,
+    NavbarComponent,
+    EventDetailsComponent,
+    CreateEventComponent,
+    Error404Component,
   ],
   imports: [
     BrowserModule,
     ToastrModule.forRoot(),
     RouterModule.forRoot(appRoutes),
-    UserModule
+    UserModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     EventService,
     NotificationService,
     EventRouteActivator,
     EventsListResolver,
-    AuthService
-],
-  bootstrap: [EventsAppComponent]
+    AuthService,
+  ],
+  bootstrap: [EventsAppComponent],
 })
-export class AppModule { }
+export class AppModule {}
