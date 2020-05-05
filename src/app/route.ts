@@ -1,3 +1,4 @@
+import { CreateSessionComponent } from './events/events-details/create-session.component';
 import {
   EventsListComponent,
   EventDetailsComponent,
@@ -33,5 +34,8 @@ export const appRoutes: Routes = [
   {
     path: 'user',
     loadChildren: './user/user.module#UserModule',
+  },
+  {
+    path: 'events/session/new', component: CreateSessionComponent
   },
 ];

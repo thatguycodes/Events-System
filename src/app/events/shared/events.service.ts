@@ -1,4 +1,4 @@
-import { IEvent } from './event.model';
+import { IEvent, ISession } from './event.model';
 import { Injectable } from '@angular/core';
 import { Subject, Observable } from 'rxjs';
 
@@ -322,5 +322,17 @@ private events: IEvent[] = [
     formValues.id = 999;
     formValues.sessions = [];
     this.events.push(formValues);
+  }
+  saveSession(formValues: any) {
+    const session: ISession = {
+      id: undefined,
+      name: formValues.name,
+      presenter: formValues.presenter,
+      duration: +formValues.duration,
+      level: formValues.level,
+      abstract: formValues?.abstract,
+      voters: []
+    };
+    console.log(session);
   }
 }
