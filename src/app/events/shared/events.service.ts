@@ -318,4 +318,9 @@ private events: IEvent[] = [
   getEvent(id: number): IEvent {
     return this.events.find((event) => event.id === id);
   }
+  saveEvent(formValues: IEvent) {
+    formValues.id = 999;
+    formValues.sessions = [];
+    this.events.push(formValues);
+  }
 }
