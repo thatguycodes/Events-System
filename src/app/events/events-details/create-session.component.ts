@@ -4,6 +4,7 @@ import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
+  selector: 'app-create-session',
   templateUrl: './create-session.component.html',
   styles: [`
   em {float: right; color: #E05C65; padding-left: 10px;}
