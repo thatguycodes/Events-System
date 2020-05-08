@@ -323,16 +323,8 @@ private events: IEvent[] = [
     formValues.sessions = [];
     this.events.push(formValues);
   }
-  saveSession(formValues: any) {
-    const session: ISession = {
-      id: undefined,
-      name: formValues.name,
-      presenter: formValues.presenter,
-      duration: +formValues.duration,
-      level: formValues.level,
-      abstract: formValues?.abstract,
-      voters: []
-    };
-    console.log(session);
+  updateEvent(event: IEvent) {
+    const index = this.events.findIndex(e => e.id === event.id);
+    this.events[index] = event;
   }
 }
