@@ -7,7 +7,7 @@ import {
   EventRouteActivator,
 } from './events/index';
 import { Error404Component } from './errors/404.component';
-import { Routes } from '@angular/Router';
+import { Routes } from '@angular/router';
 
 export const appRoutes: Routes = [
   {

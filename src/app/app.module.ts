@@ -1,3 +1,4 @@
+import { CollapsibleWellComponent } from './common/collapsible-well.componet';
 import { AuthService } from './user/auth.service';
 import { UserModule } from './user/index';
 import {
@@ -33,7 +34,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CreateEventComponent,
     Error404Component,
     CreateSessionComponent,
-    SessionListComponent
+    SessionListComponent,
+    CollapsibleWellComponent
   ],
   imports: [
     BrowserModule,
