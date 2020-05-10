@@ -5,15 +5,15 @@ import { Component, Input } from '@angular/core';
   selector: 'app-event-thumbnail',
   template: `
   <div [routerLink]="['/events', event.id]" class="well hoverwell thumbnail">
-  <h2 [ngStyle]="getTitleStyle(event.format)">{{ event?.name}}</h2>
+  <h2 [ngStyle]="getTitleStyle(event.format)">{{ event?.name | uppercase}}</h2>
   <span [ngSwitch]="event.format">
       <span *ngSwitchCase="'InPerson'" class="label label-warning">In-Person</span>
       <span *ngSwitchCase="'Online'" class="label label-warning">Online</span>
       <span *ngSwitchDefault class="label label-warning">TBD</span>
     </span>
-  <div>Date: {{ event?.date }}</div>
+  <div>Date: {{ event?.date | date: 'shortDate' }}</div>
   <div>Time: {{ event?.time }}</div>
-  <div>Price: \${{ event?.price }}</div>
+  <div>Price: {{ event?.price | currency: 'R' }}</div>
   <div  *ngIf="event.location">
       <span>Location: {{event?.location?.address}}</span>
       <span class="pad-left">{{event?.location?.city}}, {{event?.location?.country}}</span>
