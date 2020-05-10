@@ -10,7 +10,8 @@ import {
   NotificationService,
   EventsListComponent,
   EventThumbnailComponent,
-  SessionListComponent
+  SessionListComponent,
+  DurationPipe
 } from './events/index';
 import { EventRouteActivator } from './events/events-details/event-route-activator.service';
 import { Error404Component } from './errors/404.component';
@@ -35,7 +36,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     Error404Component,
     CreateSessionComponent,
     SessionListComponent,
-    CollapsibleWellComponent
+    CollapsibleWellComponent,
+    DurationPipe
   ],
   imports: [
     BrowserModule,
