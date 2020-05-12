@@ -1,5 +1,5 @@
 import { CollapsibleWellComponent } from './common/collapsible-well.componet';
-import { AuthService } from './user/auth.service';
+import {  AuthService } from './user/auth.service';
 import { UserModule } from './user/index';
 import {
   CreateSessionComponent,
@@ -7,7 +7,6 @@ import {
   CreateEventComponent,
   EventDetailsComponent,
   EventService,
-  NotificationService,
   EventsListComponent,
   EventThumbnailComponent,
   SessionListComponent,
@@ -18,6 +17,7 @@ import { Error404Component } from './errors/404.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 import { NavbarComponent } from './nav/navbar.component';
 import { EventsAppComponent } from './events-app.component';
@@ -45,14 +45,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     RouterModule.forRoot(appRoutes),
     UserModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule
   ],
   providers: [
     EventService,
-    NotificationService,
     EventRouteActivator,
     EventsListResolver,
-    AuthService,
+    AuthService
   ],
   bootstrap: [EventsAppComponent],
 })
