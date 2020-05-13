@@ -1,6 +1,7 @@
 import { IEvent, ISession } from './event.model';
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { Subject, Observable } from 'rxjs';
+import { splitAtColon } from '@angular/compiler/src/util';
 
 @Injectable()
 export class EventService {
@@ -318,13 +319,32 @@ private events: IEvent[] = [
   getEvent(id: number): IEvent {
     return this.events.find((event) => event.id === id);
   }
-  saveEvent(formValues: IEvent) {
+  public saveEvent(formValues: IEvent): void {
     formValues.id = 999;
     formValues.sessions = [];
     this.events.push(formValues);
   }
-  updateEvent(event: IEvent) {
+  public updateEvent(event: IEvent): void {
     const index = this.events.findIndex(e => e.id === event.id);
     this.events[index] = event;
+  }
+  public searchSessions(searchTerm: string): any {
+    var term = searchTerm.toLowerCase();
+    var result: ISession[] = [];
+    var matchingSessions: any;
+    this.events.forEach(event => {
+       matchingSessions = event.sessions.filter(session =>
+        session.name.toLowerCase().indexOf(term) > -1);
+         matchingSessions = matchingSessions.map((session: any) => {
+          session.eventId = event.id;
+          return session;
+        });
+        result = result.concat(matchingSessions);
+    });
+    let emitter = new EventEmitter(true);
+    setTimeout(() => {
+      emitter.emit(result)
+    }, 100);
+    return emitter;
   }
 }
