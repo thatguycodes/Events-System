@@ -23,9 +23,7 @@ import { EventsAppComponent } from './events-app.component';
 import { RouterModule } from '@angular/router';
 import { appRoutes } from './route';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { JQ_TOKEN, CollapsibleWellComponent, SimpleModalComponent } from './common/index';
-
-const jQuery = window['$'];
+import {  CollapsibleWellComponent, SimpleModalComponent } from './common/index';
 
 @NgModule({
   declarations: [
@@ -55,8 +53,7 @@ const jQuery = window['$'];
     EventService,
     EventRouteActivator,
     EventsListResolver,
-    AuthService,
-    {provide: JQ_TOKEN, useValue: jQuery}
+    AuthService
   ],
   bootstrap: [EventsAppComponent],
 })

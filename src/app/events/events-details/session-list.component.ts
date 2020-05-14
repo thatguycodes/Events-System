@@ -1,9 +1,9 @@
-import { ISession } from "./../shared/event.model";
-import { Component, Input, OnChanges } from "@angular/core";
+import { ISession } from './../shared/event.model';
+import { Component, Input, OnChanges } from '@angular/core';
 
 @Component({
-  selector: "app-session-list",
-  templateUrl: "./session-list.component.html",
+  selector: 'app-session-list',
+  templateUrl: './session-list.component.html',
 })
 export class SessionListComponent implements OnChanges {
   @Input() sessions: ISession[];
@@ -14,13 +14,13 @@ export class SessionListComponent implements OnChanges {
   ngOnChanges(): void {
     if (this.sessions) {
       this.filterSessions(this.filterBy);
-      this.sortBy === "name"
+      this.sortBy === 'name'
         ? this.visibleSessions.sort(this.sortAscByName)
         : this.visibleSessions.sort(this.sortDesByVotes);
     }
   }
   filterSessions(filter: string): void {
-    if (filter === "all") {
+    if (filter === 'all') {
       this.visibleSessions = [...this.sessions];
     } else {
       this.visibleSessions = this.sessions.filter(

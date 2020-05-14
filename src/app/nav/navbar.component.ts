@@ -1,7 +1,8 @@
 import { EventService } from './../events/shared/events.service';
 import { ISession } from './../events/shared/event.model';
 import { AuthService } from './../user/auth.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
+import { EventEmitter } from 'protractor';
 
 @Component({
   selector: 'app-navbar',
@@ -28,6 +29,7 @@ import { Component, OnInit } from '@angular/core';
 export class NavbarComponent implements OnInit {
   searchTerm: string;
   foundSessions: any;
+  toggle = false;
   constructor(public auth: AuthService, private eventService: EventService) {}
   ngOnInit() {
   }
@@ -36,6 +38,8 @@ export class NavbarComponent implements OnInit {
       this.foundSessions = sessions;
       console.log(this.foundSessions);
     });
-
+  }
+  show() {
+    this.toggle = !this.toggle;
   }
 }

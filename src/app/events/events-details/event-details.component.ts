@@ -1,11 +1,11 @@
-import { IEvent } from "./../shared/event.model";
-import { EventService } from "./../shared/events.service";
-import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
-import { ISession } from "../shared";
+import { IEvent } from './../shared/event.model';
+import { EventService } from './../shared/events.service';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { ISession } from '../shared';
 
 @Component({
-  templateUrl: "./event-details.component.html",
+  templateUrl: './event-details.component.html',
   styles: [
     `
       .container {
@@ -24,7 +24,7 @@ import { ISession } from "../shared";
 export class EventDetailsComponent implements OnInit {
   event: IEvent;
   addMode = false;
-  filterBy = "all";
+  filterBy = 'all';
   sortBy = 'name';
 
   constructor(
