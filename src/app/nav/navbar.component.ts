@@ -27,12 +27,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
   searchTerm: string;
-  foundSessions: ISession[];
+  foundSessions: any;
   constructor(public auth: AuthService, private eventService: EventService) {}
   ngOnInit() {
   }
-  searchSessions(_searchTerm: string) {
-    this.eventService.searchSessions(_searchTerm).subscribe((sessions: ISession[]) => {
+  searchSessions(searchTerm: string) {
+    this.eventService.searchSessions(searchTerm).subscribe((sessions: ISession[]) => {
       this.foundSessions = sessions;
       console.log(this.foundSessions);
     });

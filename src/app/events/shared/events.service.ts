@@ -328,7 +328,7 @@ private events: IEvent[] = [
     const index = this.events.findIndex(e => e.id === event.id);
     this.events[index] = event;
   }
-  public searchSessions(searchTerm: string): any {
+  public searchSessions(searchTerm: string): EventEmitter<any> {
     var term = searchTerm.toLowerCase();
     var result: ISession[] = [];
     var matchingSessions: any;

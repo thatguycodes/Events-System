@@ -1,5 +1,4 @@
-import { CollapsibleWellComponent } from './common/collapsible-well.componet';
-import {  AuthService } from './user/auth.service';
+import { AuthService } from './user/auth.service';
 import { UserModule } from './user/index';
 import {
   CreateSessionComponent,
@@ -17,13 +16,16 @@ import { Error404Component } from './errors/404.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ToastrModule } from 'ngx-toastr';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { NavbarComponent } from './nav/navbar.component';
 import { EventsAppComponent } from './events-app.component';
 import { RouterModule } from '@angular/router';
 import { appRoutes } from './route';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { JQ_TOKEN, CollapsibleWellComponent, SimpleModalComponent } from './common/index';
+
+const jQuery = window['$'];
 
 @NgModule({
   declarations: [
@@ -37,7 +39,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CreateSessionComponent,
     SessionListComponent,
     CollapsibleWellComponent,
-    DurationPipe
+    DurationPipe,
+    SimpleModalComponent
   ],
   imports: [
     BrowserModule,
@@ -52,8 +55,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     EventService,
     EventRouteActivator,
     EventsListResolver,
-    AuthService
+    AuthService,
+    {provide: JQ_TOKEN, useValue: jQuery}
   ],
   bootstrap: [EventsAppComponent],
 })
-export class AppModule {}
+export class AppModule { }
