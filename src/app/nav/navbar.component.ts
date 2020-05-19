@@ -9,6 +9,9 @@ import { EventEmitter } from 'protractor';
   templateUrl: './navbar.component.html',
   styles: [
     `
+    .modal .show {
+      display: block;
+    }
       .nav.navbar {
         font-size: 15px;
       }
@@ -30,6 +33,7 @@ export class NavbarComponent implements OnInit {
   searchTerm: string;
   foundSessions: any;
   toggle = false;
+  showModal: boolean;
   constructor(public auth: AuthService, private eventService: EventService) {}
   ngOnInit() {
   }
