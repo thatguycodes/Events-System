@@ -1,3 +1,5 @@
+import { VoterService } from './events/shared/voter.service';
+import { VoteComponent } from './events/events-details/vote.component';
 import { AuthService } from './user/auth.service';
 import { UserModule } from './user/index';
 import {
@@ -38,7 +40,8 @@ import {  CollapsibleWellComponent, SimpleModalComponent } from './common/index'
     SessionListComponent,
     CollapsibleWellComponent,
     DurationPipe,
-    SimpleModalComponent
+    SimpleModalComponent,
+    VoteComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +56,8 @@ import {  CollapsibleWellComponent, SimpleModalComponent } from './common/index'
     EventService,
     EventRouteActivator,
     EventsListResolver,
-    AuthService
+    AuthService,
+    VoterService
   ],
   bootstrap: [EventsAppComponent],
 })
